@@ -1,0 +1,7 @@
+<div class="box-style col-10 offset-1">
+  <h2>New Task</h2>
+  <%= simple_form_for @lists do |f| %>
+    <%= f.input :item %>
+    <%= f.submit 'Add', class: 'btn' %>
+  <% end %>
+</div>

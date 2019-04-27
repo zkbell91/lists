@@ -1,1 +1,30 @@
-<h1>Welcome to my awesome app!</h1>
+<%= will_paginate @lists, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: %w(pagination justify-content-center) %>
+
+<div class="row row-title">
+  <div class="col-md-4"><h1>TO-DO</h1></div>
+  <div class="col-md-4 offset-md-4"><h1>Completed</h1></div>
+</div>
+<div class="row justify-content-around">
+  <div id="to-do" class="sortable-list connectedSortable">
+    <% @lists.each do |list| %>
+      <div class= "box-style">
+        <h3><%= list.item %></h3><br />
+      </div>
+    <% end %>
+  </div>
+
+  
+  <div id="completed" class="sortable-list connectedSortable">
+    
+      <div class= "box-style">
+        <h3>Drag Completed items here</h3><br />
+      </div>
+    
+  </div>
+</div>
+
+<div class="clear"></div>
+<br />
+<button class="add-item-button btn btn-outline-success col-4 offset-1">
+  <%= link_to '', new_list_path, class: 'add-item fa fa-plus-circle' %>
+</button>
